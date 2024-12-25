@@ -1,0 +1,45 @@
+A Program to show some simple methods to retrieve records from DB:
+Programs:
+* SpringBootDataJPAApplication1Application.java
+* Employee.java
+* EmployeeRepository.java
+* TestRunner.java
+Notes:
+
+Output:
+From run method in TestRunner class.
+------ To get all records by findAll() method ------
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_
+1 --> Sree Sagar[A001]
+2 --> Sathish[A002]
+3 --> Pavan[A003]
+4 --> Aravind[A004]
+5 --> Pavan[A005]
+6 --> Rakesh[A006]
+------ To get all records by findAll(Sort sort) method ------
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ order by employee0_.employee_name asc
+4 --> Aravind[A004]
+3 --> Pavan[A003]
+5 --> Pavan[A005]
+6 --> Rakesh[A006]
+2 --> Sathish[A002]
+1 --> Sree Sagar[A001]
+--------- To get records by findAll(Pageable pageable) method ---------
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ limit ?
+Hibernate: select count(employee0_.employee_id) as col_0_0_ from employee employee0_
+1 --> Sree Sagar[A001]
+2 --> Sathish[A002]
+3 --> Pavan[A003]
+--------- To get records by findAll(Pageable pageable) methed ---------
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ limit ?, ?
+Hibernate: select count(employee0_.employee_id) as col_0_0_ from employee employee0_
+3 --> Pavan[A003]
+------- To get records by findAllById(Iterable<ID> ids) method ------
+Hibernate: select employee0_.employee_id as employee1_0_, employee0_.age as age2_0_, employee0_.designation as designat3_0_, employee0_.employee_code as employee4_0_, employee0_.employee_name as employee5_0_ from employee employee0_ where employee0_.employee_id in (? , ? , ?)
+2 --> Sathish[A002]
+3 --> Pavan[A003]
+5 --> Pavan[A005]
+------ To get record by findById(ID id) method -------
+Hibernate: select employee0_.employee_id as employee1_0_0_, employee0_.age as age2_0_0_, employee0_.designation as designat3_0_0_, employee0_.employee_code as employee4_0_0_, employee0_.employee_name as employee5_0_0_ from employee employee0_ where employee0_.employee_id=?
+5 --> Pavan[A005]
+From main method in SpringBootDataJPAApplication2Application class.
