@@ -5,7 +5,10 @@ Programs:
 * EmployeeRepository.java
 * TestRunner.java
 Notes:
-
+* The Sort class provide some methods to sort the data.
+* Sort.Order class provide some methods to order the data.
+* Pageable interface provides some methods for pagination
+* PageRequest class is one of the sub class of Pageable interface. 
 Output:
 From run method in TestRunner class.
 ------ To get all records by findAll() method ------
